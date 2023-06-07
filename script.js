@@ -8,17 +8,12 @@ function updateProgressBar() {
   progressBar.style.width = progress + "%";
 }
 
-function nextStep() {
-  progress += 10;
+function updateStep(step) {
+  progress += step;
   if (progress > 100) progress = 100;
-  updateProgressBar();
-}
-
-function previousStep() {
-  progress -= 10;
   if (progress < 0) progress = 0;
   updateProgressBar();
 }
 
-nextBtn.addEventListener("click", nextStep);
-previousBtn.addEventListener("click", previousStep);
+nextBtn.addEventListener("click", () => updateStep(10));
+previousBtn.addEventListener("click", () => updateStep(-10));
